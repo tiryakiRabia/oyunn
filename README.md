@@ -1,0 +1,2 @@
+# oyunn
+prg lab(oyun)
