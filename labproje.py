@@ -7,15 +7,15 @@ class Balloon(pygame.sprite.Sprite):
     def __init__(self, x, y):
         super().__init__()
         self.images = {
-            "normal": pygame.transform.scale(pygame.image.load("sprites/balloon_normal.png"), (100, 130)),
-            "broken": pygame.transform.scale(pygame.image.load("sprites/balloon_broken.png"), (100, 130)),
-            "piece": pygame.transform.scale(pygame.image.load("sprites/balloon_piece.png"), (100, 130)),
+            "normal": pygame.transform.scale(pygame.image.load("balon1.png"), (100, 130)),
+            "broken": pygame.transform.scale(pygame.image.load("balon2.png"), (100, 130)),
+            "piece": pygame.transform.scale(pygame.image.load("balon3.png"), (100, 130)),
         }
         self.image = self.images["normal"]
         self.rect = self.image.get_rect(center=(x, y))
         self.state = "normal"
         self.broken_time = None
-        self.pop_sound = pygame.mixer.Sound("sounds/balonpatlatma.mp3")  # Balon patlama sesi
+        self.pop_sound = pygame.mixer.Sound("balonpatlatma.mp3")  # Balon patlama sesi
 
     def update(self):
         if self.state == "piece":
@@ -95,11 +95,11 @@ bow_angle = 0
 bow_center = [archer_rect.right - 20, archer_rect.centery - 30]
 
 # Arka plan müziği
-pygame.mixer.music.load("sounds/arkaplan.mp3")  # Arka plan müziği
+pygame.mixer.music.load("arkaplan.mp3")  # Arka plan müziği
 pygame.mixer.music.play(-1, 0.0)  # Sonsuz döngüde çalsın
 
 # Germe sesi
-germe = pygame.mixer.Sound("sounds/germe.mp3")  # Germe sesi
+germe = pygame.mixer.Sound("germe.mp3")  # Germe sesi
 germe.set_volume(0.2)
 
 # ------------------- OYUN DÖNGÜSÜ -------------------
@@ -147,7 +147,7 @@ while running:
     if balloon_count <= 0:
         # Kazanma müziği çal
         pygame.mixer.music.stop()  # Oyun başlama müziğini durdur
-        pygame.mixer.music.load("sounds/oyunukazandı.mp3")  # Kazanma müziği
+        pygame.mixer.music.load("oyunukazandı.mp3")  # Kazanma müziği
         pygame.mixer.music.play(0, 0.0)  # Bir kere çalsın
 
         # Kazanma ekranı
