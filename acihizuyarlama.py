@@ -58,7 +58,7 @@ def rotate_center(image, angle):
 # İbre sınıfı
 class MovingPointer:
     def __init__(self):  # Düzeltildi
-        self.arrow_rect = speed_arrow.get_rect(center=(150, 350))  # Konumu biraz daha aşağıya kaydırdık
+        self.arrow_rect = speed_arrow.get_rect(center=(150, 400))  # Konumu biraz daha aşağıya kaydırdık
         self.line_rect = line_image.get_rect(midtop=(self.arrow_rect.centerx, self.arrow_rect.bottom + 5))
         self.pointer_rect = pointer_image.get_rect(midtop=(self.line_rect.centerx, self.line_rect.top))
         self.start_x = self.line_rect.left
