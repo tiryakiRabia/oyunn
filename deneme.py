@@ -1,0 +1,70 @@
+import pygame
+import math
+import sys
+
+# Başlangıç
+pygame.init()
+WIDTH, HEIGHT = 800, 800
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Dairesel Dönen Yay ve Ok")
+clock = pygame.time.Clock()
+
+# Görselleri yükle
+background_img = pygame.image.load("backgroundd.png").convert()  # Arka plan görseli
+background_width, background_height = background_img.get_width(), background_img.get_height()
+
+# Arka planı ekran boyutlarına uyarlamak
+background_img = pygame.transform.scale(background_img, (WIDTH, HEIGHT))
+
+# Yay görselini küçült
+bow_img = pygame.image.load("acı_oku.png").convert_alpha()  # Ok yay görseli
+bow_img = pygame.transform.scale(bow_img, (int(bow_img.get_width() * 0.15), int(bow_img.get_height() * 0.15)))  # Yayın boyutunu %15'e kadar küçülttük
+
+# Merkez noktası
+center_x, center_y = WIDTH // 2, HEIGHT // 2
+radius = 250
+angle = math.pi  # Yay başlangıçta 180 dereceden başlasın (yukarıda başlayıp sağa doğru hareket etsin)
+
+# Görselin hareket sınırları
+bow_width, bow_height = bow_img.get_width(), bow_img.get_height()
+
+# Dönüş hareketini, görselin boyutları içinde sabit tutmak
+min_radius = radius - max(bow_width, bow_height)  # Minimum yarıçap, görselin çapı kadar
+max_radius = radius + max(bow_width, bow_height)  # Maksimum yarıçap, görselin çapı kadar
+
+def rotate_center(image, angle):
+    """Bir görseli kendi merkezinde döndür"""
+    rotated_image = pygame.transform.rotate(image, -math.degrees(angle))
+    new_rect = rotated_image.get_rect(center=(0, 0))
+    return rotated_image, new_rect
+
+while True:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+    # Arka planı sola kaydırarak çiz
+    screen.blit(background_img, (0, 0))
+
+    # Açı her karede azalır, 180 dereceyi geçmemesi gerekir
+    angle += 0.01  # Açı negatif yönde arttığı için yay sağa doğru hareket eder
+    if angle > 2 * math.pi:  # 360 dereceyi geçerse sıfırlıyoruz
+        angle = math.pi
+
+    # Dairenin üzerindeki noktanın konumu
+    x = center_x + min_radius * math.cos(angle)
+    y = center_y + min_radius * math.sin(angle)
+
+    # Açıyı hesapla ve oku döndür
+    rotation_angle = angle + math.pi / 2  # Başlangıçta yukarıya bakması için açıyı düzeltmek
+    rotated_bow, bow_rect = rotate_center(bow_img, rotation_angle)
+
+    # Pozisyonu ayarla
+    bow_rect.center = (x, y)
+
+    # Ekrana yay ve ok çiz
+    screen.blit(rotated_bow, bow_rect)
+
+    pygame.display.flip()
+    clock.tick(60)
