@@ -113,6 +113,14 @@ python main.py
 
 ---
 
+## Oyunun Görselleri
+![Ekran görüntüsü 2025-05-14 155145](https://github.com/user-attachments/assets/8ee57a63-ae3b-42f3-9745-999c238d8c13)
+![Ekran görüntüsü 2025-05-14 155206](https://github.com/user-attachments/assets/a549b317-7b72-403d-8c55-77a6cad9eff4)
+![Ekran görüntüsü 2025-05-14 155314](https://github.com/user-attachments/assets/b622b23b-924b-4796-8137-0eabefa993a9)
+![Ekran görüntüsü 2025-05-14 155342](https://github.com/user-attachments/assets/93fbd32f-e94e-47c1-af41-48971b576c2b)
+![Ekran görüntüsü 2025-05-14 155359](https://github.com/user-attachments/assets/ad3c4a1b-2769-49f2-9232-e5703e1e6e6c)
+
+
 ## Geliştiriciler
 
 - **Zeren Karataş**
@@ -128,4 +136,5 @@ Pamukkale Üniversitesi – Bilgisayar Mühendisliği 2. sınıf öğrencileri
 Bu proje yalnızca eğitim ve gösterim amaçlıdır.  
 Telif hakkı geliştiricilere aittir.
 
-![Ekran görüntüsü 2025-05-14 155145](https://github.com/user-attachments/assets/8ee57a63-ae3b-42f3-9745-999c238d8c13)
+
+
