@@ -128,3 +128,4 @@ Pamukkale Üniversitesi – Bilgisayar Mühendisliği 2. sınıf öğrencileri
 Bu proje yalnızca eğitim ve gösterim amaçlıdır.  
 Telif hakkı geliştiricilere aittir.
 
+![Ekran görüntüsü 2025-05-14 155145](https://github.com/user-attachments/assets/8ee57a63-ae3b-42f3-9745-999c238d8c13)
